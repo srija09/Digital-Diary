@@ -13,7 +13,7 @@ function Notes() {
   const fetchNotes = useCallback(async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get('http://localhost:5000/api/notes', {
+      const response = await axios.get('https://digital-diary-zddh.onrender.com/api/notes', {
         headers: { Authorization: `Bearer ${token}` }
       });
       console.log('Fetched notes:', response.data); // Debug log
@@ -37,14 +37,14 @@ function Notes() {
       if (editId) {
         if (!editId) throw new Error('No editId set');
         console.log('Updating note with ID:', editId); // Debug log
-        await axios.put(`http://localhost:5000/api/notes/${editId}`, {
+        await axios.put(`https://digital-diary-zddh.onrender.com/api/notes/${editId}`, {
           title,
           content
         }, {
           headers: { Authorization: `Bearer ${token}` }
         });
       } else {
-        await axios.post('http://localhost:5000/api/notes', {
+        await axios.post('https://digital-diary-zddh.onrender.com/api/notes', {
           title,
           content
         }, {
@@ -82,7 +82,7 @@ function Notes() {
     console.log('Deleting note with ID:', id); // Debug log
     const token = localStorage.getItem('token');
     try {
-      await axios.delete(`http://localhost:5000/api/notes/${id}`, {
+      await axios.delete(`https://digital-diary-zddh.onrender.com/api/notes/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setError('');
