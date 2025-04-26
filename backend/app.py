@@ -10,7 +10,7 @@ import logging
 from bson.objectid import ObjectId, InvalidId
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, origins=["https://digital-diary-eta.vercel.app/"])
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
