@@ -4,8 +4,8 @@ from pymongo import MongoClient
 from dotenv import load_dotenv
 from datetime import datetime, timedelta
 import os
-import bcrypt
 import jwt
+import bcrypt
 import logging
 from bson.objectid import ObjectId, InvalidId
 
