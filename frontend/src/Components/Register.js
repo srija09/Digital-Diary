@@ -14,6 +14,10 @@ function Register() {
       await axios.post('https://digital-diary-zddh.onrender.com/api/users/register', {
         username,
         password
+      },{
+        headers: {
+          'Content-Type': 'application/json'
+        }
       });
       navigate('/');
     } catch (err) {

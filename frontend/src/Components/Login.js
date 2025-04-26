@@ -14,6 +14,10 @@ function Login() {
       const response = await axios.post('https://digital-diary-zddh.onrender.com/api/users/login', {
         username,
         password
+      },{
+        headers: {
+          'Content-Type': 'application/json'
+        }
       });
       localStorage.setItem('token', response.data.token);
       navigate('/notes');

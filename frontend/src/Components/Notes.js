@@ -14,7 +14,8 @@ function Notes() {
     try {
       const token = localStorage.getItem('token');
       const response = await axios.get('https://digital-diary-zddh.onrender.com/api/notes', {
-        headers: { Authorization: `Bearer ${token}` }
+        headers: { Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json' }
       });
       console.log('Fetched notes:', response.data); // Debug log
       setNotes(response.data);
@@ -41,14 +42,16 @@ function Notes() {
           title,
           content
         }, {
-          headers: { Authorization: `Bearer ${token}` }
+          headers: { Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json'}
         });
       } else {
         await axios.post('https://digital-diary-zddh.onrender.com/api/notes', {
           title,
           content
         }, {
-          headers: { Authorization: `Bearer ${token}` }
+          headers: { Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json' }
         });
       }
       setTitle('');
@@ -83,7 +86,8 @@ function Notes() {
     const token = localStorage.getItem('token');
     try {
       await axios.delete(`https://digital-diary-zddh.onrender.com/api/notes/${id}`, {
-        headers: { Authorization: `Bearer ${token}` }
+        headers: { Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json' }
       });
       setError('');
       fetchNotes();
